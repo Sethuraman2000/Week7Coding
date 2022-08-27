@@ -1,0 +1,121 @@
+<section class="py-5">
+  <div class="container px-5">
+      <!-- Contact form-->
+      <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+          <div class="text-center mb-5">
+              
+              <h1 class="fw-bolder">Electronic Items</h1>
+              <p class="lead fw-normal text-muted mb-0">Enter the details below</p>
+          </div>
+          <div class="row gx-5 justify-content-center">
+              <div class="col-lg-8 col-xl-6">
+                  <!-- * * * * * * * * * * * * * * *-->
+                  <!-- * * SB Forms Contact Form * *-->
+                  <!-- * * * * * * * * * * * * * * *-->
+                  <!-- This form is pre-integrated with SB Forms.-->
+                  <!-- To make this form functional, sign up at-->
+                  <!-- https://startbootstrap.com/solution/contact-forms-->
+                  <!-- to get an API token!-->
+                  <form [formGroup]="profileForm" (ngSubmit)="submit()" class="center" method="get">
+                      <!-- Name input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="name" type="text" placeholder="Enter Product name..." name="productname " formControlName="productname"/>
+                          <label for="name">Product name</label>
+                          <div *ngIf=" f['productname'].touched">
+  
+                            <div *ngIf="f['productname'].invalid" class="text-danger">*Enter Correct Product name</div>
+                      
+                          </div>&nbsp;
+                          
+                      </div>
+                      <!-- Email address input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="name" type="text" placeholder="Price" name="price" formControlName="price" />
+                          <label for="email">Price</label>
+                          <div *ngIf=" f['price'].touched">
+  
+                            <div *ngIf="f['price'].invalid" class="text-danger">* Enter price in numbers</div>
+                      
+                          </div>&nbsp;
+                          
+                      </div>
+                      <!-- Phone number input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="name" type="text" placeholder="Quantity" name="quantity" formControlName="quantity"/>
+                          <label for="phone">Quantity</label>
+                          <div *ngIf=" f['quantity'].touched">
+  
+                            <div *ngIf="f['quantity'].invalid" class="text-danger">* Quantity is required</div>
+                      
+                          </div>&nbsp;
+                          
+                      </div>
+                      <!-- Message input-->
+                      <div class="form-floating mb-3">
+                          <input class="form-control" id="message" type="text" placeholder="Enter your Description here..." style="height: 5rem" name="description" formControlName="description"/>
+                          <label for="message">Description</label>
+                          <div *ngIf=" f['description'].touched">
+  
+                            <div *ngIf="f['description'].invalid" class="text-danger">*Description is needed</div>
+                      
+                          </div>&nbsp;
+                      
+                          
+                      </div>
+                      <!-- Submit success message-->
+                      <!---->
+                      <!-- This is what your users will see when the form-->
+                      <!-- has successfully submitted-->
+                      
+                      <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg" id="submitButton" >Add Item</button></div>
+                      <h1 class="text-success">{{message}}</h1>
+                    </form>
+              </div>
+          </div>
+      </div>
+      <div style="text-align: center;">
+        <button class="center" type="submit" class="btn btn-warning" (click)="getdata()">Get Electronics Details</button>
+        </div>
+        
+        
+        
+        <table class="table">
+        
+          <tr>
+        
+            <th>ID</th>
+        
+            <th>Product Name</th>
+
+            <th>Price</th>
+        
+            <th>Quantity</th>
+      
+            <th>Description</th>
+        
+            
+        
+          </tr>
+        
+        
+        
+          <tr *ngFor="let sethu of product">
+        
+            <td>{{sethu.id}}</td>
+        
+            <td>{{sethu.productname}}</td>
+
+            <td>{{sethu.price}}</td>
+        
+            <td>{{sethu.quantity}}</td>
+      
+            <td>{{sethu.description}}</td>
+        
+            <td><button class="center" type="submit" class="btn btn-warning" (click)="deletedata(sethu.id)">Delete</button></td>
+        
+        
+        
+        
+          </tr>
+        
+        </table>
